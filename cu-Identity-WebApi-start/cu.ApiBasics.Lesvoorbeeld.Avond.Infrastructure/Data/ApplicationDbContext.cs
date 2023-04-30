@@ -22,6 +22,9 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("money");
             Seeder.Seed(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }

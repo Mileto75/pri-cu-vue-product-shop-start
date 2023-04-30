@@ -48,8 +48,9 @@ builder.Services.AddAuthentication(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateActor = true,
+        ValidateIssuer = true,
         ValidateAudience = true,
+        RequireExpirationTime = true,
         ValidIssuer = builder.Configuration["JWTConfiguration:Issuer"],
         ValidAudience = builder.Configuration["JWTConfiguration:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -58,12 +59,12 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("admin", policy =>
+    options.AddPolicy("Admin", policy =>
     {
         policy.RequireClaim(ClaimTypes.Role, "admin");
     });
     //must be admin or customer
-    options.AddPolicy("customer", policy =>
+    options.AddPolicy("Customer", policy =>
     {
         policy.RequireAssertion(context =>
         {
@@ -132,14 +133,9 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.UseCors();
+app.UseStaticFiles();
+app.MapControllers();
 app.Run();

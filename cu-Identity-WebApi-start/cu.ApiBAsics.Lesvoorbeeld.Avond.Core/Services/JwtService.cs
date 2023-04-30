@@ -31,8 +31,8 @@ namespace cu.ApiBAsics.Lesvoorbeeld.Avond.Core.Services
                 issuer: _configuration["JWTConfiguration:Issuer"],
                 audience: _configuration["JWTConfiguration:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromDays(7)),
                 notBefore: DateTime.UtcNow,
+                expires: DateTime.UtcNow.Add(TimeSpan.FromDays(expirationDays)),
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signinKey))
                 ,SecurityAlgorithms.HmacSha256)
             );

@@ -31,8 +31,17 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Data.Seeding
                 ConcurrencyStamp = Guid.NewGuid().ToString(),
                 EmailConfirmed = true,
             };
+            //add claim to user
+            modelBuilder.Entity<IdentityUserClaim<string>>()
+                .HasData(new IdentityUserClaim<string>
+                {
+                    Id = 1,
+                    UserId = "1",
+                    ClaimType = ClaimTypes.Role,
+                    ClaimValue = "admin"
+                });
             //hash password
-            admin.PasswordHash = passwordHasher.HashPassword(admin, "test");
+            admin.PasswordHash = passwordHasher.HashPassword(admin, "123");
             //add to applicationuser entity
             modelBuilder.Entity<ApplicationUser>().HasData(admin);
             modelBuilder.Entity<Category>().HasData
@@ -41,10 +50,6 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Data.Seeding
                     new Category { Id = 2,Name = "PC's" },
                     new Category { Id = 3,Name = "Phones" }
                 });
-            //add claim to user
-            modelBuilder.Entity<IdentityUserClaim<string>>()
-                .HasData(new IdentityUserClaim<string> { Id = 1, UserId = "1",
-                ClaimType =ClaimTypes.Role, ClaimValue = "admin"});
             //another user
             var user = new ApplicationUser
             {
@@ -60,7 +65,7 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Data.Seeding
                 EmailConfirmed = true,
             };
             //hash password
-            user.PasswordHash = passwordHasher.HashPassword(user, "test");//only in development!
+            user.PasswordHash = passwordHasher.HashPassword(user, "123");//only in development!
             //add to table
             modelBuilder.Entity<ApplicationUser>().HasData(user);
             //add claim

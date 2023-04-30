@@ -21,14 +21,14 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Migrations
                 keyColumn: "Id",
                 keyValue: "1",
                 columns: new[] { "ConcurrencyStamp", "PasswordHash", "SecurityStamp" },
-                values: new object[] { "d26c8c84-2a9d-4fb2-8868-c0956cee0f6c", "AQAAAAEAACcQAAAAEEInGmXAGmuWdvTGMYU1nf63MkuObO2UUrwru4jBMKfjSfnovK3EJVGoMGVjsnrrCg==", "891baa4c-9cdf-4b6e-b692-ac3996a4545d" });
+                values: new object[] { "b5097497-b525-4486-b15b-25b27d44b45d", "AQAAAAEAACcQAAAAEJ6ouT4HKevsjjYJhdDCqG4Yav2501Yq6KoKBMOyDORHn7aDH3P6HDKV9PydvSR8KA==", "208cfc88-38ab-44c4-a2bd-3d4204b0ed41" });
 
             migrationBuilder.UpdateData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
                 keyValue: "2",
                 columns: new[] { "ConcurrencyStamp", "PasswordHash", "SecurityStamp" },
-                values: new object[] { "6ba68c55-a40c-4eab-a99c-0758312c2f2c", "AQAAAAEAACcQAAAAEHPOETqoiS8HyqkDYPv2P2jpESFoopmUJ63I+CI7+JswLh64SsJNT6pljvtDB78fHQ==", "6989b198-41ac-422a-ae38-018a1817c6d2" });
+                values: new object[] { "59eb1c04-6312-4090-b38a-4fea4a03a51f", "AQAAAAEAACcQAAAAENPtwLxpJzXDUvy5x2HFRFbvP5/OI9KcfSJkd0Fqk03QkFDr2M4+/IzgKcXolZkU4w==", "e8f03b75-4df7-4d1d-a010-395164a126e7" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

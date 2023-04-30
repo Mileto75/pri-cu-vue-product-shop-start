@@ -12,7 +12,7 @@ using cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Data;
 namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230430064941_fixPricePrecision")]
+    [Migration("20230430081042_fixPricePrecision")]
     partial class fixPricePrecision
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,7 +99,7 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d26c8c84-2a9d-4fb2-8868-c0956cee0f6c",
+                            ConcurrencyStamp = "b5097497-b525-4486-b15b-25b27d44b45d",
                             Email = "admin@products.com",
                             EmailConfirmed = true,
                             Firstname = "Johnny",
@@ -107,9 +107,9 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@PRODUCTS.COM",
                             NormalizedUserName = "ADMIN@PRODUCTS.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEInGmXAGmuWdvTGMYU1nf63MkuObO2UUrwru4jBMKfjSfnovK3EJVGoMGVjsnrrCg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ6ouT4HKevsjjYJhdDCqG4Yav2501Yq6KoKBMOyDORHn7aDH3P6HDKV9PydvSR8KA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "891baa4c-9cdf-4b6e-b692-ac3996a4545d",
+                            SecurityStamp = "208cfc88-38ab-44c4-a2bd-3d4204b0ed41",
                             TwoFactorEnabled = false,
                             UserName = "admin@products.com"
                         },
@@ -117,7 +117,7 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6ba68c55-a40c-4eab-a99c-0758312c2f2c",
+                            ConcurrencyStamp = "59eb1c04-6312-4090-b38a-4fea4a03a51f",
                             Email = "bart@products.com",
                             EmailConfirmed = true,
                             Firstname = "Bart",
@@ -125,9 +125,9 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "BART@PRODUCTS.COM",
                             NormalizedUserName = "BART@PRODUCTS.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHPOETqoiS8HyqkDYPv2P2jpESFoopmUJ63I+CI7+JswLh64SsJNT6pljvtDB78fHQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENPtwLxpJzXDUvy5x2HFRFbvP5/OI9KcfSJkd0Fqk03QkFDr2M4+/IzgKcXolZkU4w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6989b198-41ac-422a-ae38-018a1817c6d2",
+                            SecurityStamp = "e8f03b75-4df7-4d1d-a010-395164a126e7",
                             TwoFactorEnabled = false,
                             UserName = "bart@products.com"
                         });

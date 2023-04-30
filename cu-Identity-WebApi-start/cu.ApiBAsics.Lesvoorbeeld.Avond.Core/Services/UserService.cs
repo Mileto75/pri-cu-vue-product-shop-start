@@ -37,28 +37,24 @@ namespace cu.ApiBAsics.Lesvoorbeeld.Avond.Core.Services
 
         public async Task<AuthenticateResultModel> Login(string username, string password)
         {
-            //check if user exists
+            //authenticate user
+            //check credentials
             var user = await _userManager.FindByNameAsync(username);
-            if (user == null)
+            if (!await _userManager.CheckPasswordAsync(user, password))
             {
                 return new AuthenticateResultModel {
                 Messages = new List<string> { "Login failed!"}
                 };
             }
-            //user exists => generate token
+            //user aythenticated => generate token
             //get the claims
             var claims = (List<Claim>)await _userManager.GetClaimsAsync(user);
             //generate the token
             var token = _jwtService.GenerateToken(claims);
-            //serializthe token
+            //serialize the token
             var serializedToken = _jwtService.SerializeToken(token);
             //return the token
             return new AuthenticateResultModel { Success = true, Messages = new List<string> { serializedToken } };
-        }
-
-        public async Task Logout()
-        {
-            await _signInManager.SignOutAsync();
         }
 
         public async Task<AuthenticateResultModel> Register(string firstname, string lastname, string username, string password)
@@ -80,11 +76,8 @@ namespace cu.ApiBAsics.Lesvoorbeeld.Avond.Core.Services
                     Messages = new List<string> { "Registration failed!"}
                 };
             }
-            //get the user and add a claim registration-date
-            applicationUser = await _userManager.FindByNameAsync(username);
-            //add a claim registration-date
             await _userManager.AddClaimAsync(applicationUser,
-                new Claim("registration-date", DateTime.UtcNow.ToString("yy-MM-dd")));
+                new Claim(ClaimTypes.Role, "customer"));
             return new AuthenticateResultModel
             {
                 Success = true,

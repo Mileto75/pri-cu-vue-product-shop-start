@@ -44,7 +44,7 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Api.Controllers
             return Ok(productsResponseDto);
         }
         [HttpGet]
-        [Authorize(Policy = "customer")]
+        [Authorize(Policy = "Customer")]
         public async Task<IActionResult> Get()
         {
             var products = await _productService.GetAllAsync();
@@ -66,7 +66,7 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Api.Controllers
             return Ok(productResponseDto);
         }
         [HttpPost]
-        [Authorize(Policy = "admin")]
+        [Authorize(Policy = "Admin")]
         public async Task<IActionResult> Add([FromForm]ProductAddRequestDto
             productAddRequestDto)
         {
@@ -92,6 +92,7 @@ namespace cu.ApiBasics.Lesvoorbeeld.Avond.Api.Controllers
         }
         //put to update
         [HttpPut]
+        [Authorize(Policy = "Admin")]
         public async Task<IActionResult> Update([FromForm]ProductUpdateRequestDto
             productUpdateRequestDto)
         {
